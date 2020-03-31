@@ -2,21 +2,21 @@
 /**
  * Tests _is_in_development_mode().
  *
- * @package     KnowTheCode\StarterPlugin\Tests\PHP\Integration
+ * @package     spiralWebDb\StarterPlugin\Tests\PHP\Integration
  * @since       1.0.0
- * @link        https://github.com/KnowTheCode/starter-plugin
+ * @link        https://github.com/rgadon107/starter-plugin
  * @license     GNU-2.0+
  */
 
-namespace KnowTheCode\StarterPlugin\Tests\PHP\Integration;
+namespace spiralWebDb\StarterPlugin\Tests\PHP\Integration;
 
-use function KnowTheCode\StarterPlugin\_is_in_development_mode;
-use function KnowTheCode\StarterPlugin\Tests\PHP\get_plugin_root_dir;
+use function spiralWebDb\StarterPlugin\_is_in_development_mode;
+use function spiralWebDb\StarterPlugin\Tests\PHP\get_plugin_root_dir;
 
 /**
  * Class Tests_IsInDevelopmentMode
  *
- * @package KnowTheCode\StarterPlugin\Tests\PHP\Integration
+ * @package spiralWebDb\StarterPlugin\Tests\PHP\Integration
  */
 class Tests_IsInDevelopmentMode extends Test_Case {
 

@@ -45,13 +45,13 @@
 
     <rule ref="WordPress.WP.DeprecatedFunctions">
         <properties>
-            <property name="minimum_supported_version" value="4.8"/>
+            <property name="minimum_supported_version" value="5.0"/>
         </properties>
     </rule>
 
     <rule ref="WordPress.WP.I18n">
         <properties>
-            <property name="text_domain" type="array" value="git-contributing"/>
+            <property name="text_domain" type="array" value="starter-plugin"/>
         </properties>
     </rule>
 </ruleset>

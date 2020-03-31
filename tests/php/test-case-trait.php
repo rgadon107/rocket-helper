@@ -2,18 +2,18 @@
 /**
  * Test Case Traits for the Plugin's test suites.
  *
- * @package     KnowTheCode\StarterPlugin\Tests\PHP
+ * @package     spiralWebDb\StarterPlugin\Tests\PHP
  * @since       1.0.0
- * @link        https://github.com/KnowTheCode/starter-plugin
+ * @link        https://github.com/rgadon107/starter-plugin
  * @license     GNU-2.0+
  */
 
-namespace KnowTheCode\StarterPlugin\Tests\PHP;
+namespace spiralWebDb\StarterPlugin\Tests\PHP;
 
 /**
  * Test_Case_Trait
  *
- * @package KnowTheCode\StarterPlugin\Tests\Unit
+ * @package spiralWebDb\StarterPlugin\Tests\Unit
  */
 trait Test_Case_Trait {
 

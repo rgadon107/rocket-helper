@@ -2,23 +2,25 @@
 /**
  * Starter Plugin
  *
- * @package     KnowTheCode\StarterPlugin
- * @author      hellofromTonya
+ * @package     spiralWebDb\StarterPlugin
+ * @author      Robert A Gadon
  * @license     GPL-2.0+
  *
  * @wordpress-plugin
- * Plugin Name: Starter Plugin
- * Plugin URI:  https://github.com/KnowTheCode/starter-plugin
- * Description: A WordPress plugin boilerplate that emphasizes code quality and provides you a quick start to your custom plugin development project.
- * Version:     1.0.0
- * Author:      hellofromTonya
- * Author URI:  https://KnowTheCode.io
- * Text Domain: starter-plugin
- * License:     GPL-2.0+
- * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
+ * Plugin Name:     Starter Plugin
+ * Plugin URI:      https://github.com/spiralWebDb/starter-plugin
+ * Description:     A WordPress plugin boilerplate that emphasizes code quality and provides you a quick start to your custom plugin development project.
+ * Version:         1.0.0
+ * Requires WP:     5.0
+ * Requires PHP:    5.6
+ * Author:          Robert A Gadon
+ * Author URI:      https://spiralWebDb.com
+ * Text Domain:     starter-plugin
+ * License:         GPL-2.0+
+ * License URI:     http://www.gnu.org/licenses/gpl-2.0.txt
  */
 
-namespace KnowTheCode\StarterPlugin;
+namespace spiralWebDb\StarterPlugin;
 
 /**
  * Gets this plugin's absolute directory path.
@@ -31,6 +33,20 @@ namespace KnowTheCode\StarterPlugin;
  */
 function _get_plugin_directory() {
 	return __DIR__;
+}
+
+/*
+ *  Registers the plugin with WordPress activation, deactivation, and uninstall hooks.
+ *
+ *  @since 1.0.0
+ *
+ *  @return void
+ */
+function register_plugin() {
+
+	register_activation_hook( __FILE__, __NAMESPACE__ . '\delete_rewrite_rules' );
+	register_deactivation_hook( __FILE__, __NAMESPACE__ . '\delete_rewrite_rules' );
+	register_uninstall_hook( __FILE__, __NAMESPACE__ . '\delete_rewrite_rules' );
 }
 
 /**
@@ -73,8 +89,9 @@ function _is_in_development_mode() {
  * @return void
  */
 function autoload_files() {
-	$files = array(// add the list of files to load here.
-	);
+	$files = [
+		// add the list of files to load here.
+	];
 
 	foreach ( $files as $file ) {
 		require __DIR__ . '/src/' . $file;
@@ -90,6 +107,7 @@ function autoload_files() {
  */
 function launch() {
 	autoload_files();
+	register_plugin();
 }
 
 launch();
