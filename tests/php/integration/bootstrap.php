@@ -36,7 +36,7 @@ function get_wp_tests_dir() {
 
 	// Travis CI & Vagrant SSH tests directory.
 	if ( empty( $tests_dir ) ) {
-		$tests_dir = '/tmp/wordpress-tests';
+		$tests_dir = '/tmp/wordpress-tests-lib';
 	}
 
 	// If the tests' includes directory does not exist, try a relative path to the Core tests directory.
