@@ -1,4 +1,7 @@
-composer.lock
+# Files
+.DS_Store
+
+# Directories
 /node_modules/
 /vendor/
 /logs/
