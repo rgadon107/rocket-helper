@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/5.7/phpunit.xsd"
-         bootstrap="tests/php/unit/bootstrap.php"
+         bootstrap="tests/phpunit/unit/bootstrap.php"
          backupGlobals="false"
          colors="true"
          beStrictAboutCoversAnnotation="true"
@@ -15,8 +15,8 @@
 
     <testsuites>
         <testsuite name="unit">
-            <directory suffix=".php">./tests/php/unit/</directory>
-            <exclude>./tests/php/unit/*/*/fixtures/</exclude>
+            <directory suffix=".php">./tests/phpunit/unit/</directory>
+            <exclude>./tests/phpunit/unit/*/*/fixtures/</exclude>
         </testsuite>
     </testsuites>
 
