@@ -38,6 +38,8 @@ function _get_plugin_directory() {
 /*
  *  Registers the plugin with WordPress activation, deactivation, and uninstall hooks.
  *
+ *  Note: Remove this function if using the 'central-hub' plugin instead to flush rewrites.
+ *
  *  @since 1.0.0
  *
  *  @return void
@@ -107,6 +109,10 @@ function autoload_files() {
  */
 function launch() {
 	autoload_files();
+
+// Uncomment 'Custom\register_plugin()' below if using `central-hub` plugin to flush rewrites.
+// Remove call to 'spiralWebDb\StarterPlugin\register_plugin()' when using 'central-hub'.
+//	Custom\register_plugin( __FILE__ );
 	register_plugin();
 }
 
