@@ -52,6 +52,17 @@ function register_plugin() {
 }
 
 /**
+ * Delete the rewrite rules on plugin status change, i.e. activation, deactivation, or uninstall.
+ *
+ * @since 1.0.0
+ *
+ * @return void
+ */
+function delete_rewrite_rules() {
+	delete_option( 'rewrite_rules' );
+}
+
+/**
  * Gets this plugin's URL.
  *
  * @since  1.0.0
@@ -111,7 +122,8 @@ function launch() {
 	autoload_files();
 
 // Uncomment 'Custom\register_plugin()' below if using `central-hub` plugin to flush rewrites.
-// Remove call to 'spiralWebDb\StarterPlugin\register_plugin()' when using 'central-hub'.
+// Remove call to 'spiralWebDb\StarterPlugin\register_plugin()' & 'spiralWebDb\StarterPlugin\delete_rewrite_rules()'
+//    when using 'central-hub'.
 //	Custom\register_plugin( __FILE__ );
 	register_plugin();
 }
