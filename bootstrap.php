@@ -1,26 +1,26 @@
 <?php
 /**
- * Starter Plugin
+ * WP Rocket Helper Plugin
  *
- * @package     spiralWebDb\StarterPlugin
+ * @package     spiralWebDb\rocketHelper
  * @author      Robert A Gadon
  * @license     GPL-2.0+
  *
  * @wordpress-plugin
- * Plugin Name:     Starter Plugin
- * Plugin URI:      https://github.com/spiralWebDb/starter-plugin
- * Description:     A WordPress plugin boilerplate that emphasizes code quality and provides you a quick start to your custom plugin development project.
+ * Plugin Name:     WP Rocket Helper Plugin
+ * Plugin URI:      https://github.com/rgadon107/rocket-helper
+ * Description:     A helper plugin to remove 2 hooks in the WP Rocket plugin.
  * Version:         1.0.0
  * Requires WP:     5.0
  * Requires PHP:    5.6
  * Author:          Robert A Gadon
  * Author URI:      https://spiralWebDb.com
- * Text Domain:     starter-plugin
+ * Text Domain:     rocket-helper
  * License:         GPL-2.0+
  * License URI:     http://www.gnu.org/licenses/gpl-2.0.txt
  */
 
-namespace spiralWebDb\StarterPlugin;
+namespace spiralWebDb\rocketHelper;
 
 /**
  * Gets this plugin's absolute directory path.
@@ -103,7 +103,7 @@ function _is_in_development_mode() {
  */
 function autoload_files() {
 	$files = [
-		// add the list of files to load here.
+		'admin/admin-notices.php'
 	];
 
 	foreach ( $files as $file ) {
