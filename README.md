@@ -1,6 +1,6 @@
 # 'Rocket-Helper' Plugin
 
-A WordPress helper plugin intended to target and remove 2 admin notices that display when either the `.htaccess` or `advanced-cache.php` files are not writable.
+A WordPress helper plugin intended to target and remove 2 admin notices in the `WP Rocket` plugin that display when either the `.htaccess` or `advanced-cache.php` files are not writable.
 
 ## Targeting the admin notices
 
@@ -22,3 +22,7 @@ I’m not able to successfully instantiate a new object of class `WP_Rocket\Engi
 The target method is not registered to any event (action or filter) within the class. There is no filter (e.g. `apply_filters( ‘event_name’, $object )` within the class that allows access to the object and method.
 
 Without access to both the object and method, I can’t remove the method given my current skill level and knowledge of PHP and WordPress.
+
+### A note about contributors to this repo
+
+This plugin is based on a starter plugin boilerplate forked from <a href="https://github.com/KnowTheCode/starter-plugin">the Github repo for KnowTheCode.io.</a>  The initial contributor to that repo was Tonya Mork. She did not contribute to this plugin, even though she's named as one by Github.
