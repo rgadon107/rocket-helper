@@ -11,8 +11,6 @@
 
 namespace spiralWebDb\rocketHelper\Admin;
 
-use WP_Rocket\Engine\Cache\AdvancedCache;
-
 add_action( 'in_admin_header', __NAMESPACE__ . '\unregister_htaccess_permissions_notice' );
 /**
  * Unregister the htaccess permissions admin notice in the WP Rocket plugin.

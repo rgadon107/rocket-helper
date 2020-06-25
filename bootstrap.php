@@ -103,7 +103,7 @@ function _is_in_development_mode() {
  */
 function autoload_files() {
 	$files = [
-		'admin/admin-notices.php'
+		'admin/admin-notices.php',
 	];
 
 	foreach ( $files as $file ) {
