@@ -1,6 +1,6 @@
 <?php
 /**
- *  Handle admin notices displays in the WP Rocket plugin
+ *  Handle admin notice displays in the WP Rocket plugin
  *
  * @package    spiralWebDb\rocketHelper\Admin
  * @since      1.0.0
