@@ -22,110 +22,30 @@
 
 namespace spiralWebDb\rocketHelper;
 
+add_action( 'admin_init', __NAMESPACE__ . '\unregister_htaccess_permissions_notice' );
 /**
- * Gets this plugin's absolute directory path.
- *
- * @since  1.0.0
- * @ignore
- * @access private
- *
- * @return string
- */
-function _get_plugin_directory() {
-	return __DIR__;
-}
-
-/*
- *  Registers the plugin with WordPress activation, deactivation, and uninstall hooks.
- *
- *  Note: Remove this function if using the 'central-hub' plugin instead to flush rewrites.
- *
- *  @since 1.0.0
- *
- *  @return void
- */
-function register_plugin() {
-
-	register_activation_hook( __FILE__, __NAMESPACE__ . '\delete_rewrite_rules' );
-	register_deactivation_hook( __FILE__, __NAMESPACE__ . '\delete_rewrite_rules' );
-	register_uninstall_hook( __FILE__, __NAMESPACE__ . '\delete_rewrite_rules' );
-}
-
-/**
- * Delete the rewrite rules on plugin status change, i.e. activation, deactivation, or uninstall.
+ * Unregister the htaccess permissions admin notice in the WP Rocket plugin.
  *
  * @since 1.0.0
  *
  * @return void
  */
-function delete_rewrite_rules() {
-	delete_option( 'rewrite_rules' );
+function unregister_htaccess_permissions_notice() {
+	remove_action( 'admin_notices', 'rocket_warning_htaccess_permissions' );
 }
 
 /**
- * Gets this plugin's URL.
+ * Remove function rocket_warning_advanced_cache_permissions() from the 'admin_notices' hook.
  *
- * @since  1.0.0
- * @ignore
- * @access private
+ * @since 1.0.0
  *
- * @return string
+ * @return void
  */
-function _get_plugin_url() {
-	static $plugin_url;
+add_action( 'admin_init', function() {
+	$container  = apply_filters( 'rocket_container', null );
+	$subscriber = $container->get( 'admin_cache_subscriber' );
 
-	if ( empty( $plugin_url ) ) {
-		$plugin_url = plugins_url( null, __FILE__ );
+	remove_action( 'admin_notices', [ $subscriber, 'rocket_warning_advanced_cache_permissions'] );
 	}
+);
 
-	return $plugin_url;
-}
-
-/**
- * Checks if this plugin is in development mode.
- *
- * @since  1.0.0
- * @ignore
- * @access private
- *
- * @return bool
- */
-function _is_in_development_mode() {
-	return defined( WP_DEBUG ) && WP_DEBUG === true;
-}
-
-/**
- * Autoload the plugin's files.
- *
- * @since 1.0.0
- *
- * @return void
- */
-function autoload_files() {
-	$files = [
-		'admin/admin-notices.php',
-	];
-
-	foreach ( $files as $file ) {
-		require __DIR__ . '/src/' . $file;
-	}
-}
-
-/**
- * Launch the plugin.
- *
- * @since 1.0.0
- *
- * @return void
- */
-function launch() {
-	autoload_files();
-
-// Uncomment 'Custom\register_plugin()' below if using `central-hub` plugin to flush rewrites.
-// Remove call to 'spiralWebDb\StarterPlugin\register_plugin()' & 'spiralWebDb\StarterPlugin\delete_rewrite_rules()'
-//    when using 'central-hub'.
-//	Custom\register_plugin( __FILE__ );
-	register_plugin();
-}
-
-launch();
